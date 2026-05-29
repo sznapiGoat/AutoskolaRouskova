@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* ───────────────────────────────────────────────────────────
+   Autoškola Roušková — Premium Minimalist Light design tokens
+   ─────────────────────────────────────────────────────────── */
+:root {
+  --bg: #ffffff;          /* pure white page base            */
+  --surface: #f9fafb;     /* soft off-white section bands     */
+  --surface-2: #f3f4f6;   /* card hover / nested surface      */
+  --border: #e5e7eb;      /* hairline dividers                */
+  --border-strong: #d1d5db;
+
+  --ink: #111827;         /* rich charcoal — primary text     */
+  --ink-soft: #374151;    /* secondary text                   */
+  --ink-muted: #6b7280;   /* tertiary / captions (AA on white)*/
+
+  /* Accent — deep royal blue. Used sparingly: primary CTAs,
+     fine indicator badges. AAA-grade contrast on white.       */
+  --brand: #1d4ed8;
+  --brand-strong: #1e3a8a;
+  --brand-tint: #eff6ff;
+
+  --gold: #b45309;        /* reputation/star accent, sparingly */
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-tint: var(--brand-tint);
+  --color-gold: var(--gold);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-display);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 16px;            /* never below 16px on body      */
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Visible, accessible keyboard focus for all interactive elements */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Shared layout rhythm */
+.container-page {
+  width: 100%;
+  max-width: 72rem;          /* 1152px */
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+@media (min-width: 768px) {
+  .container-page { padding-inline: 2.5rem; }
+}
