@@ -187,3 +187,42 @@ export const promoLayers = [
   "Výcvik skupin A & B. Klidný přístup s dlouholetou tradicí.",
   "Zahajte svůj kurz na telefonu: 607 892 209.",
 ] as const;
+
+/* ── Real photography (public/images) ─────────────────────────
+   Every image carries descriptive Czech alt text for accessibility. */
+
+/** Small accent photos under the hero promo. */
+export const heroPhotos = [
+  { src: "/images/golf3.jpg", alt: "Výcvikové vozidlo autoškoly připravené k jízdě" },
+  { src: "/images/motorky1.jpg", alt: "Výcvikový motocykl autoškoly Roušková" },
+  { src: "/images/ucebna1.jpg", alt: "Učebna autoškoly připravená na výuku teorie" },
+] as const;
+
+/** Home — "Ze života autoškoly" gallery. */
+export const gallery = [
+  { src: "/images/rousek-home.jpg", alt: "Instruktor autoškoly u výcvikového vozidla" },
+  { src: "/images/ucebna2.jpg", alt: "Interiér moderní učebny autoškoly Roušková" },
+  { src: "/images/golf5.jpg", alt: "Osobní automobil pro výcvik skupiny B" },
+  { src: "/images/motorky2.jpg", alt: "Motocykl pro výcvik skupin AM, A1, A2 a A" },
+  { src: "/images/zkousky1.jpg", alt: "Žáci autoškoly u závěrečných zkoušek" },
+  { src: "/images/tymova-fotografie.jpg", alt: "Tým autoškoly Roušková" },
+] as const;
+
+/** /vycvik-b — classroom + fleet imagery. */
+export const classroomPhotos = [
+  { src: "/images/ucebna1.jpg", alt: "Učebna autoškoly s místy pro výuku teorie" },
+  { src: "/images/ucebna2.jpg", alt: "Druhý pohled do učebny autoškoly Roušková" },
+] as const;
+
+export const fleetPhotos = [
+  { src: "/images/golf2.jpg", alt: "Volkswagen Golf — výcvikové vozidlo autoškoly" },
+  { src: "/images/golf3.jpg", alt: "Výcvikový automobil zepředu" },
+  { src: "/images/golf4.jpg", alt: "Výcvikový automobil z boku" },
+  { src: "/images/golf5.jpg", alt: "Výcvikový automobil připravený k jízdě" },
+] as const;
+
+/** /motocykly — motorcycle imagery. */
+export const motoPhotos = [
+  { src: "/images/motorky1.jpg", alt: "Výcvikový motocykl autoškoly Roušková" },
+  { src: "/images/motorky2.jpg", alt: "Motocykl pro výcvik motocyklových skupin" },
+] as const;

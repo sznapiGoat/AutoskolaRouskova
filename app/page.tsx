@@ -3,8 +3,15 @@ import { ArrowRight, Phone, Star } from "lucide-react";
 import { Section } from "./components/Section";
 import { FadeUp } from "./components/FadeUp";
 import { Icon } from "./components/Icon";
+import { Photo } from "./components/Photo";
 import { HeroPromo } from "./components/HeroPromo";
-import { actionCards, site, valueAnchors } from "./constants/siteData";
+import {
+  actionCards,
+  gallery,
+  heroPhotos,
+  site,
+  valueAnchors,
+} from "./constants/siteData";
 
 export default function HomePage() {
   const primary = site.phones[0];
@@ -57,9 +64,22 @@ export default function HomePage() {
             <p className="mt-3 text-sm text-ink-muted">{site.phoneNote}</p>
           </div>
 
-          {/* Remotion promo */}
+          {/* Remotion promo + real photo strip */}
           <FadeUp className="lg:justify-self-end lg:w-full">
             <HeroPromo />
+            <div className="mt-4 grid grid-cols-3 gap-4">
+              {heroPhotos.map((p, i) => (
+                <Photo
+                  key={p.src}
+                  src={p.src}
+                  alt={p.alt}
+                  ratio="1 / 1"
+                  priority={i === 0}
+                  sizes="(min-width: 1024px) 160px, 30vw"
+                  className="rounded-xl"
+                />
+              ))}
+            </div>
           </FadeUp>
         </div>
       </section>
@@ -140,6 +160,30 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
+            </FadeUp>
+          ))}
+        </div>
+      </Section>
+
+      {/* ── Gallery ──────────────────────────────────────────── */}
+      <Section muted aria-labelledby="galerie-heading">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-sm font-600 uppercase tracking-wider text-brand">Galerie</p>
+          <h2
+            id="galerie-heading"
+            className="mt-3 font-display text-2xl font-700 tracking-tight text-ink md:text-3xl"
+          >
+            Ze života naší autoškoly
+          </h2>
+          <p className="mt-3 text-ink-soft">
+            Učebna, vozový park i okamžiky od zkoušek — podívejte se, jak to u nás chodí.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {gallery.map((p, i) => (
+            <FadeUp key={p.src} delay={(i % 3) * 0.06}>
+              <Photo src={p.src} alt={p.alt} />
             </FadeUp>
           ))}
         </div>

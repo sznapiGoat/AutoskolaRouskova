@@ -3,8 +3,9 @@ import Link from "next/link";
 import { Phone, Check, Car } from "lucide-react";
 import { Section, PageHeader } from "../components/Section";
 import { FadeUp } from "../components/FadeUp";
+import { Photo } from "../components/Photo";
 import { JourneyFlow } from "../components/JourneyFlow";
-import { carPage, site } from "../constants/siteData";
+import { carPage, classroomPhotos, fleetPhotos, site } from "../constants/siteData";
 
 export const metadata: Metadata = {
   title: "Výcvik automobilů (skupina B)",
@@ -47,6 +48,20 @@ export default function VycvikBPage() {
           </FadeUp>
         </div>
 
+        {/* Classroom photos */}
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
+          {classroomPhotos.map((p, i) => (
+            <FadeUp key={p.src} delay={i * 0.08}>
+              <Photo
+                src={p.src}
+                alt={p.alt}
+                ratio="3 / 2"
+                sizes="(min-width: 768px) 50vw, 100vw"
+              />
+            </FadeUp>
+          ))}
+        </div>
+
         {/* Fleet */}
         <FadeUp delay={0.12}>
           <div className="mt-6 rounded-2xl border border-border bg-bg p-7">
@@ -69,6 +84,20 @@ export default function VycvikBPage() {
               ))}
             </div>
             <p className="mt-4 text-ink-muted">{carPage.fleet.note}</p>
+
+            {/* Fleet photo grid */}
+            <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              {fleetPhotos.map((p) => (
+                <Photo
+                  key={p.src}
+                  src={p.src}
+                  alt={p.alt}
+                  ratio="4 / 3"
+                  sizes="(min-width: 640px) 22vw, 45vw"
+                  className="rounded-xl"
+                />
+              ))}
+            </div>
           </div>
         </FadeUp>
       </Section>

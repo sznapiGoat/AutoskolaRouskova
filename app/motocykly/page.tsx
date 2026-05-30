@@ -3,8 +3,9 @@ import Link from "next/link";
 import { Phone, Check } from "lucide-react";
 import { Section, PageHeader } from "../components/Section";
 import { FadeUp } from "../components/FadeUp";
+import { Photo } from "../components/Photo";
 import { JourneyFlow } from "../components/JourneyFlow";
-import { motoPage, site } from "../constants/siteData";
+import { motoPage, motoPhotos, site } from "../constants/siteData";
 
 export const metadata: Metadata = {
   title: "Výcvik motocyklů (AM, A1, A2, A)",
@@ -58,11 +59,16 @@ export default function MotocyklyPage() {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-border bg-surface p-7">
-            <h3 className="font-display text-lg font-700 text-ink">Postup výcviku</h3>
-            <p className="mt-2 text-base leading-relaxed text-ink-muted">
-              Stejná pečlivá cesta jako u automobilů — jen v sedle.
-            </p>
+          <div className="grid grid-cols-2 gap-4">
+            {motoPhotos.map((p) => (
+              <Photo
+                key={p.src}
+                src={p.src}
+                alt={p.alt}
+                ratio="4 / 3"
+                sizes="(min-width: 1024px) 25vw, 45vw"
+              />
+            ))}
           </div>
         </div>
 
